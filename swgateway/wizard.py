@@ -40,7 +40,7 @@ class Wizard:
 
     def fetch_versions(self):
         # pull version information
-        versions_data = api.version_info()
+        versions_data = api.version_info(path = self.VERSION_PATH)
         if versions_data['status'] != 200: raise SmonException("Failed to execute request to check game versions during authenticate()")
         versions_data = versions_data['data']['version_data']
         # save version information for future requests
