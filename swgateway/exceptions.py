@@ -1,0 +1,2 @@
+class SmonException(Exception):
+    pass

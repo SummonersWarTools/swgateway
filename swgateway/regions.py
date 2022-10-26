@@ -1,0 +1,6 @@
+GLOBAL = 1
+KOREA = 2
+JAPAN = 3
+CHINA = 4
+SEA = 5
+EUROPE = 6
