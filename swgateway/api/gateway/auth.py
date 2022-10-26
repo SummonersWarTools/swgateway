@@ -1,5 +1,5 @@
-from ..utils import smon_req_json, make_smon_gw_request
-from ..constants import SMON_GAME_INDEX, SMON_APP_VERSION, SMON_BATTLE_VERSION
+from swgateway.api.utils import smon_req_json, make_smon_gw_request
+from swgateway.api.constants import SMON_GAME_INDEX, SMON_APP_VERSION, SMON_BATTLE_VERSION
 
 def GuestLogin(wizard):
     login_body = make_smon_gw_request("GuestLogin", wizard)

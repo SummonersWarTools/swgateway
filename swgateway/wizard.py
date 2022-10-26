@@ -1,13 +1,13 @@
 from hive.auth import HiveGuestUser
-from .regions import GLOBAL
-from .api import location, version_info, gateway
-from .exceptions import SmonException
+from swgateway import regions
+from swgateway import api
+from swgateway.exceptions import SmonException
 
 # base class for different wizard authentication methods
 class Wizard:
     SESSION_TOKEN = None
     WIZARD_ID = None
-    REGION = GLOBAL
+    REGION = regions.GLOBAL
     HIVE_USER = None
 
     GATEWAY_PATH = None
@@ -27,7 +27,7 @@ class Wizard:
     def fetch_urls(self):
         if self.REGION == None: raise Exception("Attempted to fetch URLs for a Wizard with an invalid region")
         # fetch location data
-        locations_data = location()
+        locations_data = api.location()
         if locations_data['status'] != 200: raise SmonException("Failed to execute request to fetch URLs from location_c2")
         locations_data = locations_data['data']
         # fetch data for specified region
@@ -40,7 +40,7 @@ class Wizard:
 
     def fetch_versions(self):
         # pull version information
-        versions_data = version_info(path = self.VERSION_PATH)
+        versions_data = api.version_info(path = self.VERSION_PATH)
         if versions_data['status'] != 200: raise SmonException("Failed to execute request to check game versions during authenticate()")
         versions_data = versions_data['data']['version_data']
         # save version information for future requests
@@ -66,7 +66,7 @@ class WizardGuest(Wizard):
         if self.VERSION_DATA == None: super().fetch_versions()
 
         # execute GuestLogin API call
-        login_data = gateway.GuestLogin(self)
+        login_data = api.gateway.GuestLogin(self)
         if login_data['status'] != 200 or login_data['data']['ret_code'] != 0: raise SmonException(f"Failed to login to Summoners War API via GuestLogin method, status={login_data['status']}, return={login_data['data']['ret_code']}")
         self.SESSION_TOKEN = login_data['data']['session_key']
         self.WIZARD_ID = login_data['data']['wizard_id']

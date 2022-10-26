@@ -1,4 +1,4 @@
-from ..crypto import SWCryptoMgr
+from swgateway.crypto import SWCryptoMgr
 
 import json
 import requests
