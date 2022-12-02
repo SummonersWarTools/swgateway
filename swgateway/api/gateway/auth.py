@@ -30,3 +30,10 @@ def GuestLogin(wizard):
     })
     login_response = smon_req_json(wizard.GATEWAY_PATH, login_body)
     return login_response
+    
+def CheckLoginBlock(wizard):
+    body = make_smon_gw_request("CheckLoginBlock", wizard)
+    response = smon_req_json(wizard.GATEWAY_PATH, login_body)
+    return response
+    
+ 

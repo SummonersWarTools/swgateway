@@ -7,5 +7,5 @@ setup(
     description='Python binding for Com2Us Summoners War API.',
     author='ziddia',
     license='MIT',
-    install_requires=['hive @ git+ssh://git@github.com/SummonersWarTools/hive.git#egg=hive-0.1'],
+    install_requires=['withhive @ git+ssh://git@github.com/SummonersWarTools/withhive.git#egg=withhive-0.1'],
 )
