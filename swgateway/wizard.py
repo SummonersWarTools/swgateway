@@ -1,4 +1,4 @@
-from hive.auth import HiveGuestUser
+from withhive.auth import HiveGuestUser
 from swgateway import regions
 from swgateway import api
 from swgateway.exceptions import SmonException

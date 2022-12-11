@@ -2,8 +2,8 @@ from swgateway.api.utils import smon_req_json, make_smon_gw_request
 from swgateway.api.constants import SMON_GAME_INDEX, SMON_APP_VERSION, SMON_BATTLE_VERSION
 
 def GuestLogin(wizard):
-    login_body = make_smon_gw_request("GuestLogin", wizard)
-    login_body.update({
+    body = make_smon_gw_request("GuestLogin", wizard)
+    body.update({
         "game_index": SMON_GAME_INDEX,
         "app_version": SMON_APP_VERSION,
         "uid": wizard.HIVE_USER.HIVE_UID,
@@ -28,12 +28,12 @@ def GuestLogin(wizard):
         "app_s_key": "",
         "battle_version": SMON_BATTLE_VERSION
     })
-    login_response = smon_req_json(wizard.GATEWAY_PATH, login_body)
+    login_response = smon_req_json(wizard.GATEWAY_PATH, body)
     return login_response
     
 def CheckLoginBlock(wizard):
     body = make_smon_gw_request("CheckLoginBlock", wizard)
-    response = smon_req_json(wizard.GATEWAY_PATH, login_body)
+    response = smon_req_json(wizard.GATEWAY_PATH, body)
     return response
     
  
