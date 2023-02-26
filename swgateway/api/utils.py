@@ -1,5 +1,5 @@
 from swgateway.crypto import SWCryptoMgr
-from swgateway.gateway.constants import SWGATEWAY_VERSION_IDX
+from swgateway.api.constants import SWGATEWAY_VERSION_IDX
 
 import json
 import requests
