@@ -1,4 +1,5 @@
 from swgateway.crypto import SWCryptoMgr
+from swgateway.gateway.constants import SWGATEWAY_VERSION_IDX
 
 import json
 import requests
@@ -7,6 +8,7 @@ import time
 from base64 import b64encode, b64decode
 
 def smon_req_json(endpoint, data):
+    data["swgateway_version"] = SWGATEWAY_VERSION_IDX
     request_encrypted =  b64encode(SWCryptoMgr.Encrypt(SWCryptoMgr.DEFAULT, json.dumps(data).encode('utf-8'))).decode('utf-8')
     response = requests.post(endpoint, data = request_encrypted)
     return {

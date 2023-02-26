@@ -5,3 +5,4 @@ from .dungeon import CheckDarkPortalStatus, GetDimensionHolePortalInfo
 from .reward import ReceiveDailyRewardSpecial, ReceiveDailyRewardInactive, GetMiscReward, ReceiveDailyRewardNewUser
 from .arena import GetArenaLog
 from .collection import GetUnitRecommendPage_V2, GetUnitRecommendFriendUnitList, getUnitRecommendRecentDeckList, getUnitStatsRuneInfo
+from .rtpvp import getRtpvpReplayData, getRtpvpReplayList
